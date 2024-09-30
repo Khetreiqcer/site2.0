@@ -18,7 +18,8 @@ export default function Footer() {
         </Link>
       </Stack>
       <Text textAlign="center" mt={2}>
-        &copy; {new Date().getFullYear()} [Seu Nome]. Todos os direitos reservados.
+      &copy; {new Date().getFullYear()} Hollow Knight (https://skfb.ly/oo6KW) by Dasha Klyusova is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+      &copy; {new Date().getFullYear()} Joao Possenti. Todos os direitos reservados.
       </Text>
     </Box>
   );
