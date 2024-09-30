@@ -1,52 +1,109 @@
-'use client';
+'use client'
+import { useState } from 'react';
+import { Box, Button, FormControl, FormLabel, Input, Textarea, Heading, useToast } from '@chakra-ui/react';
 
-import { Box, Heading, Text, Stack, Link, IconButton } from '@chakra-ui/react';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+export default function ContactForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const toast = useToast();
 
-export default function Contact() {
+  // Função para enviar a mensagem
+  const sendMessage = async (e: React.FormEvent) => {
+    e.preventDefault(); // Evitar o comportamento padrão do formulário
+
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        toast({
+          title: 'Message Sent!',
+          description: "We've received your message.",
+          status: 'success',
+          duration: 5000,
+          isClosable: true,
+        });
+        // Limpar o formulário após enviar a mensagem
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        toast({
+          title: 'Error',
+          description: 'Failed to send message.',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'There was a problem sending the message.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  };
+
   return (
     <Box
+      as="form"
+      onSubmit={sendMessage} // Lidar com o envio do formulário
       px={4}
       py={{ base: 12, md: 16 }}
-      maxW="800px"
+      maxW="600px"
       mx="auto"
       textAlign="center"
     >
-      <Heading as="h2" size="xl" mb={6} >
-        Entre em Contato
+      <Heading as="h2" size="xl" mb={8}>
+        Contact Me
       </Heading>
-      <Text fontSize="lg" mb={6}>
-        Estou disponível para discussões, novos projetos e oportunidades. Entre em contato pelas redes sociais ou via e-mail.
-      </Text>
-      <Stack direction="row" spacing={4} justify="center">
-        <Link href="https://github.com/seu-usuario" isExternal>
-          <IconButton
-            aria-label="GitHub"
-            icon={<FaGithub />}
-            size="lg"
-            variant="ghost"
-            _hover={{ color: 'cyan.400' }} // Leve destaque no hover
-          />
-        </Link>
-        <Link href="https://linkedin.com/in/seu-usuario" isExternal>
-          <IconButton
-            aria-label="LinkedIn"
-            icon={<FaLinkedin />}
-            size="lg"
-            variant="ghost"
-            _hover={{ color: 'cyan.400' }}
-          />
-        </Link>
-        <Link href="mailto:seu-email@example.com">
-          <IconButton
-            aria-label="Email"
-            icon={<FaEnvelope />}
-            size="lg"
-            variant="ghost"
-            _hover={{ color: 'cyan.400' }}
-          />
-        </Link>
-      </Stack>
+
+      <FormControl id="name" mb={4}>
+        <FormLabel>Name</FormLabel>
+        <Input
+          type="text"
+          placeholder="Your Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </FormControl>
+
+      <FormControl id="email" mb={4}>
+        <FormLabel>Email</FormLabel>
+        <Input
+          type="email"
+          placeholder="Your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </FormControl>
+
+      <FormControl id="message" mb={6}>
+        <FormLabel>Message</FormLabel>
+        <Textarea
+          placeholder="Your Message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+      </FormControl>
+
+      <Button colorScheme="blue" size="lg" width="full" type="submit">
+        Send Message
+      </Button>
     </Box>
   );
 }

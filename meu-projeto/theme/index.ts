@@ -15,11 +15,11 @@ const theme = extendTheme({
   styles: {
     global: (props: any) => ({
       body: {
-        // Modo light
+        transition: 'background-color 0.2s ease, color 0.2s ease',  // Suave transição de tema
         backgroundColor: props.colorMode === 'light' 
-          ? '#f5f5dc'  // Cor sólida clara para o modo light
-          : '#1a1a1a',  // Cor sólida escura para o modo dark (inspirado em Takuya)
-        color: props.colorMode === 'light' ? '#000' : '#fff',  // Texto preto no modo claro, branco no escuro
+          ? '#faf8ef'  // Tom claro e neutro (quase off-white) para o modo light
+          : '#1a1a1a',  // Cor sólida escura para o modo dark
+        color: props.colorMode === 'light' ? '#333333' : '#f0f0f0',  // Texto suavizado em ambos os modos
         minHeight: '100vh',
         backgroundAttachment: 'fixed',
         backgroundSize: 'cover',
@@ -33,8 +33,8 @@ const theme = extendTheme({
       200: '#333333',  // Cor neutra escura para o modo dark
       300: '#0f0f0f',  // Fundo mais escuro para o modo dark
       light: {
-        100: '#f0f0f0',  // Fundo claro no modo light
-        200: '#e0e0e0',  // Cinza claro no modo light
+        100: '#faf8ef',  // Off-white no modo light
+        200: '#e8e8e8',  // Cinza claro no modo light
       },
       dark: {
         100: '#1a1a1a',  // Preto suave para o modo dark
@@ -45,10 +45,11 @@ const theme = extendTheme({
   components: {
     Button: {
       baseStyle: (props: any) => ({
-        bg: props.colorMode === 'light' ? '#e0e0e0' : '#333333',
+        transition: 'background-color 0.2s ease',  // Transição suave no hover
+        bg: props.colorMode === 'light' ? '#e8e8e8' : '#333333',  // Cores suaves
         color: props.colorMode === 'light' ? '#000' : '#fff',
         _hover: {
-          bg: props.colorMode === 'light' ? '#d0d0d0' : '#444444',
+          bg: props.colorMode === 'light' ? '#d8d8d8' : '#444444',  // Hover discreto
         },
       }),
     },

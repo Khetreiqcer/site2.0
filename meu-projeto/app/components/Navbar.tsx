@@ -1,7 +1,6 @@
-// Navbar.tsx
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Flex,
@@ -16,28 +15,49 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import ThemeToggleButton from "./ThemeToggleButton";
+import { Link as ScrollLink } from 'react-scroll';
 
-const links = ["Home", "Sobre", "Blog", "Contato"];
+const links = ["Home", "About", "Blog", "Contact"];
 
 const NavLink = ({ children }: { children: string }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: "hoverBackground", // A cor de hover será definida no tema
-    }}
-    href={`/${children.toLowerCase()}`}
+  <ScrollLink
+    to={children.toLowerCase()}
+    smooth={true}
+    duration={500}
+    spy={true}
+    activeClass="active"
+    offset={-70} // Offset para ajustar a posição do scroll com relação à navbar fixa
   >
-    {children}
-  </Link>
+    <Link
+      px={2}
+      py={1}
+      rounded={"md"}
+      _hover={{
+        textDecoration: "none",
+        bg: "hoverBackground", // A cor de hover será definida no tema
+      }}
+    >
+      {children}
+    </Link>
+  </ScrollLink>
 );
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
   const theme = useTheme();
+
+  // Verifica se estamos no lado do cliente antes de habilitar ScrollLink
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Atualiza quando estamos no lado do cliente
+  }, []);
+
+  if (!isClient) {
+    return null; // Retorna null no lado do servidor para evitar erros de hidratação
+  }
+
   return (
     <Box
       bg={colorMode === "light" ? "rgba(255, 255, 255, 0.3)" : "rgba(26, 32, 44, 0.3)"}
@@ -62,7 +82,7 @@ export default function Navbar() {
         {/* Logo centralizada */}
         <HStack spacing={8} alignItems="center">
           <Text fontSize="xl" fontWeight="bold">
-          ☯ Kheth
+            ☯ Kheth
           </Text>
         </HStack>
 

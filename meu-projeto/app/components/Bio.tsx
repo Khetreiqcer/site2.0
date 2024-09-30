@@ -9,19 +9,20 @@ export default function Bio() {
       maxW="800px"
       mx="auto"
       textAlign="center"
+      id='about'
     >
       <Heading as="h2" size="xl" mb={6}>
-        Sobre Mim
+        About Me
       </Heading>
       <Text fontSize="lg">
-        Olá! Eu sou João Vitor Possenti, estudante de Sistemas de Informação na UFSM, com previsão de formatura para 2027.
-        Tenho experiência em desenvolvimento web, utilizando tecnologias como Node.js, React, e MongoDB, além de conhecimentos
-        em Python, bancos de dados relacionais e não relacionais. Meu objetivo profissional é trabalhar como desenvolvedor
-        de software, criando aplicações robustas e escaláveis.
+      Hi! I am João Vitor Possenti, an Information Systems student at UFSM, expected to graduate in 2027. 
+        I have experience in web development using technologies such as Node.js, React, and MongoDB, in addition to 
+        knowledge in Python, relational and non-relational databases. My professional goal is to work as a software 
+        developer, creating robust and scalable applications.
       </Text>
       <Text fontSize="lg" mt={4} >
-        Gosto de enfrentar desafios e de me mostrar que posso superá-los. Estou sempre em busca de oportunidades para aprender
-        e melhorar minhas habilidades. Também sou um entusiasta por Linux e otimizações de runtime.
+      I enjoy taking on challenges and proving to myself that I can overcome them. I am always looking for opportunities 
+      to learn and improve my skills. I'm also a Linux enthusiast and passionate about runtime optimizations.
       </Text>
     </Box>
   );
