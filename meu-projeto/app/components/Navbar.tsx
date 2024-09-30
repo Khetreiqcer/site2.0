@@ -8,7 +8,6 @@ import {
   Link,
   IconButton,
   Stack,
-  useTheme,
   useColorMode,
   useDisclosure,
   Text,
@@ -45,7 +44,6 @@ const NavLink = ({ children }: { children: string }) => (
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
-  const theme = useTheme();
 
   // Verifica se estamos no lado do cliente antes de habilitar ScrollLink
   const [isClient, setIsClient] = useState(false);

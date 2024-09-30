@@ -1,10 +1,6 @@
-// app/layout.tsx
-import GundamScene from '@/app/components/Gundam';
+
 import Chakra from './components/ChakraProviders';
-
-import Hero from './components/Hero';
-
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
       <body>

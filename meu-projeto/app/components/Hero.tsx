@@ -60,7 +60,9 @@ export default function Hero() {
                 ? 'rgba(0, 0, 0, 0.1)'  // Fundo escuro no modo claro
                 : 'rgba(255, 255, 255, 0.1)',  // Fundo claro no modo escuro
           }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition="all 0.8s ease"  // Definindo a transição
+          transitionDuration="0.8s"    // Definindo a duração da transição
+          transitionDelay="0.5s"
           padding="10px"
           display="inline-block"
         >

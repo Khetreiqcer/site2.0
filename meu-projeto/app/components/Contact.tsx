@@ -26,7 +26,7 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        const data = await response.json();
+        
         toast({
           title: 'Message Sent!',
           description: "We've received your message.",
@@ -47,6 +47,7 @@ export default function ContactForm() {
           isClosable: true,
         });
       }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast({
         title: 'Error',

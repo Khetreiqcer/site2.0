@@ -16,9 +16,10 @@ function NewModel() {
       scene.scale.set(5, 5, 5);  // Ajustar a escala para reduzir o tamanho do modelo
       scene.position.set(0, -1.5, 0);  // Ajustar a posição para centralizar melhor
       scene.traverse((node) => {
-        if (node.isMesh) {
-          node.castShadow = true;  // Ativar sombras projetadas
-          node.receiveShadow = true;  // Ativar sombras recebidas
+        if ((node as THREE.Mesh).isMesh) {
+          const mesh = node as THREE.Mesh; // Fazer o type assertion para Mesh
+          mesh.castShadow = true;  // Ativar sombras projetadas
+          mesh.receiveShadow = true;  // Ativar sombras recebidas
         }
       });
     }

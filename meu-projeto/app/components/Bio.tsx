@@ -22,7 +22,7 @@ export default function Bio() {
       </Text>
       <Text fontSize="lg" mt={4} >
       I enjoy taking on challenges and proving to myself that I can overcome them. I am always looking for opportunities 
-      to learn and improve my skills. I'm also a Linux enthusiast and passionate about runtime optimizations.
+      to learn and improve my skills. Im also a Linux enthusiast and passionate about runtime optimizations.
       </Text>
     </Box>
   );

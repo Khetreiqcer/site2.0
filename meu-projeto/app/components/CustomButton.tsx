@@ -1,7 +1,7 @@
 'use client'
 import { Button } from '@chakra-ui/react';
 
-export default function CustomButton({ children }) {
+export default function CustomButton({ children }: { children: React.ReactNode }) {
   return (
     <Button
       bg="cyan.400"
