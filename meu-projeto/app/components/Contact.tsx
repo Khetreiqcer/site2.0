@@ -1,58 +1,65 @@
-'use client'
-import { useState } from 'react';
-import { Box, Button, FormControl, FormLabel, Input, Textarea, Heading, useToast } from '@chakra-ui/react';
+"use client";
+import { useState } from "react";
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  Heading,
+  useToast,
+} from "@chakra-ui/react";
 
 export default function ContactForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const toast = useToast();
 
-  // Função para enviar a mensagem
   const sendMessage = async (e: React.FormEvent) => {
-    e.preventDefault(); // Evitar o comportamento padrão do formulário
+    e.preventDefault();
 
     try {
-      const response = await fetch('https://sitev2-8e04632047ba.herokuapp.com/api/contact', {
-        method: 'POST',
+      const response = await fetch("", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name,
           email,
-          message
-        })
+          message,
+        }),
       });
 
       if (response.ok) {
-        
         toast({
-          title: 'Message Sent!',
+          title: "Message Sent!",
           description: "We've received your message.",
-          status: 'success',
+          status: "success",
           duration: 5000,
           isClosable: true,
         });
-        // Limpar o formulário após enviar a mensagem
-        setName('');
-        setEmail('');
-        setMessage('');
+
+        setName("");
+        setEmail("");
+        setMessage("");
       } else {
         toast({
-          title: 'Error',
-          description: 'Failed to send message.',
-          status: 'error',
+          title: "Error",
+          description: "Failed to send message.",
+          status: "error",
           duration: 5000,
           isClosable: true,
         });
       }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast({
-        title: 'Error',
-        description: 'There was a problem sending the message.',
-        status: 'error',
+        title: "Error",
+        description: "There was a problem sending the message.",
+        status: "error",
         duration: 5000,
         isClosable: true,
       });
@@ -62,12 +69,13 @@ export default function ContactForm() {
   return (
     <Box
       as="form"
-      onSubmit={sendMessage} // Lidar com o envio do formulário
+      onSubmit={sendMessage}
       px={4}
       py={{ base: 12, md: 16 }}
       maxW="600px"
       mx="auto"
       textAlign="center"
+      id="contact"
     >
       <Heading as="h2" size="xl" mb={8}>
         Contact Me

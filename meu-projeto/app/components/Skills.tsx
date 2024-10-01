@@ -1,15 +1,22 @@
-'use client'
-import { Box, Heading, Text, SimpleGrid, Progress, Icon } from '@chakra-ui/react';
-import { FaNodeJs, FaReact, FaPython, FaDatabase } from 'react-icons/fa';
-import { SiTypescript, SiNextdotjs  } from "react-icons/si";
+"use client";
+import {
+  Box,
+  Heading,
+  Text,
+  SimpleGrid,
+  Progress,
+  Icon,
+} from "@chakra-ui/react";
+import { FaNodeJs, FaReact, FaPython, FaDatabase } from "react-icons/fa";
+import { SiTypescript, SiNextdotjs } from "react-icons/si";
 
 const skills = [
-  { name: 'NodeJS', level: 90, icon: FaNodeJs },
-  { name: 'React', level: 85, icon: FaReact },
-  { name: 'Python', level: 75, icon: FaPython },
-  { name: 'Databases', level: 70, icon: FaDatabase },
-  { name: 'NextJS', level: 80, icon: SiNextdotjs },
-  { name: 'TypeScript', level: 90, icon: SiTypescript },
+  { name: "NodeJS", level: 90, icon: FaNodeJs },
+  { name: "React", level: 85, icon: FaReact },
+  { name: "Python", level: 75, icon: FaPython },
+  { name: "Databases", level: 70, icon: FaDatabase },
+  { name: "NextJS", level: 80, icon: SiNextdotjs },
+  { name: "TypeScript", level: 90, icon: SiTypescript },
 ];
 
 export default function SkillsGrid() {
@@ -34,13 +41,18 @@ export default function SkillsGrid() {
             borderRadius="md"
             p={6}
             boxShadow="lg"
-            _hover={{ transform: 'scale(1.05)', transition: '0.3s' }}  // Efeito ao passar o mouse
+            _hover={{ transform: "scale(1.05)", transition: "0.3s" }}
           >
-            <Icon as={skill.icon} boxSize={12} color="blue.500" mb={4} />  {/* Ícone maior no topo */}
+            <Icon as={skill.icon} boxSize={12} color="blue.500" mb={4} />
             <Text fontSize="lg" mb={2}>
               {skill.name}
             </Text>
-            <Progress value={skill.level} size="sm" colorScheme="blue" borderRadius="md" />
+            <Progress
+              value={skill.level}
+              size="sm"
+              colorScheme="blue"
+              borderRadius="md"
+            />
           </Box>
         ))}
       </SimpleGrid>

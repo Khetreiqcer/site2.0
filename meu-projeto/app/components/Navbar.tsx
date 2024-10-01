@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import ThemeToggleButton from "./ThemeToggleButton";
-import { Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink } from "react-scroll";
 
 const links = ["Home", "About", "Blog", "Contact"];
 
@@ -25,7 +25,7 @@ const NavLink = ({ children }: { children: string }) => (
     duration={500}
     spy={true}
     activeClass="active"
-    offset={-70} // Offset para ajustar a posição do scroll com relação à navbar fixa
+    offset={-70}
   >
     <Link
       px={2}
@@ -33,7 +33,7 @@ const NavLink = ({ children }: { children: string }) => (
       rounded={"md"}
       _hover={{
         textDecoration: "none",
-        bg: "hoverBackground", // A cor de hover será definida no tema
+        bg: "hoverBackground",
       }}
     >
       {children}
@@ -45,21 +45,24 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
 
-  // Verifica se estamos no lado do cliente antes de habilitar ScrollLink
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // Atualiza quando estamos no lado do cliente
+    setIsClient(true);
   }, []);
 
   if (!isClient) {
-    return null; // Retorna null no lado do servidor para evitar erros de hidratação
+    return null;
   }
 
   return (
     <Box
-      bg={colorMode === "light" ? "rgba(255, 255, 255, 0.3)" : "rgba(26, 32, 44, 0.3)"}
-      backdropFilter="blur(10px)" // Adiciona o desfoque na navbar
+      bg={
+        colorMode === "light"
+          ? "rgba(255, 255, 255, 0.3)"
+          : "rgba(26, 32, 44, 0.3)"
+      }
+      backdropFilter="blur(10px)"
       px={4}
       position="fixed"
       width="100%"
@@ -67,7 +70,13 @@ export default function Navbar() {
       boxShadow="lg"
       transition="background-color 0.3s ease"
     >
-      <Flex h={14} alignItems="center" justifyContent="space-between" maxW="1200px" mx="auto">
+      <Flex
+        h={14}
+        alignItems="center"
+        justifyContent="space-between"
+        maxW="1200px"
+        mx="auto"
+      >
         {/* Ícone de menu mobile */}
         <IconButton
           size={"md"}
@@ -80,7 +89,7 @@ export default function Navbar() {
         {/* Logo centralizada */}
         <HStack spacing={8} alignItems="center">
           <Text fontSize="xl" fontWeight="bold">
-            ☯ Kheth
+            Kheth
           </Text>
         </HStack>
 
