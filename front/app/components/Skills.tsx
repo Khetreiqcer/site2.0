@@ -11,11 +11,11 @@ import { FaNodeJs, FaReact, FaPython, FaDatabase } from "react-icons/fa";
 import { SiTypescript, SiNextdotjs } from "react-icons/si";
 
 const skills = [
-  { name: "NodeJS", level: 90, icon: FaNodeJs },
-  { name: "React", level: 85, icon: FaReact },
-  { name: "Python", level: 75, icon: FaPython },
+  { name: "NodeJS", level: 80, icon: FaNodeJs },
+  { name: "React", level: 75, icon: FaReact },
+  { name: "Python", level: 70, icon: FaPython },
   { name: "Databases", level: 70, icon: FaDatabase },
-  { name: "NextJS", level: 80, icon: SiNextdotjs },
+  { name: "NextJS", level: 85, icon: SiNextdotjs },
   { name: "TypeScript", level: 90, icon: SiTypescript },
 ];
 

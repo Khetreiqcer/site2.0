@@ -22,7 +22,7 @@ export default function Hero() {
         style={{ marginBottom: "20px" }}
       >
         <Image
-          src="https://i.pinimg.com/564x/f2/e9/0c/f2e90ce2946b5d9d029bf9bdc7db5078.jpg"
+          src="https://i.pinimg.com/564x/a6/8d/89/a68d892b45a6c655d23e2fc3523d7ef1.jpg"
           alt="Sua Foto"
           borderRadius="full"
           boxSize="150px"

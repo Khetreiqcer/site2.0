@@ -16,7 +16,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import ThemeToggleButton from "./ThemeToggleButton";
 import { Link as ScrollLink } from "react-scroll";
 
-const links = ["Home", "About", "Blog", "Contact"];
+const links = ["Home", "About", "Contact"];
 
 const NavLink = ({ children }: { children: string }) => (
   <ScrollLink

@@ -26,7 +26,7 @@ export default function Footer() {
       <Text textAlign="center" mt={2}>
         Made with{" "}
         <span role="img" aria-label="heart">
-          ��️
+          ❤️
         </span>{" "}
         by João Possenti. {new Date().getFullYear()}{" "}
         <Link href="https://www.linkedin.com/in/joão-possenti-4434bb1a1/">
