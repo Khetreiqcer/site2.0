@@ -22,7 +22,7 @@ export default function ContactForm() {
 
     try {
       const response = await fetch(
-        "https://sitev2-c84b6c6d50b2.herokuapp.com",
+        "https://sitev2-c84b6c6d50b2.herokuapp.com/api/contact",
         {
           method: "POST",
           headers: {
