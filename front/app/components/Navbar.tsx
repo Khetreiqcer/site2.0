@@ -77,7 +77,6 @@ export default function Navbar() {
         maxW="1200px"
         mx="auto"
       >
-        {/* Ícone de menu mobile */}
         <IconButton
           size={"md"}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -86,14 +85,12 @@ export default function Navbar() {
           onClick={isOpen ? onClose : onOpen}
         />
 
-        {/* Logo centralizada */}
         <HStack spacing={8} alignItems="center">
           <Text fontSize="xl" fontWeight="bold">
             Kheth
           </Text>
         </HStack>
 
-        {/* Links de Navegação para Desktop */}
         <HStack
           spacing={8}
           display={{ base: "none", md: "flex" }}
@@ -105,13 +102,11 @@ export default function Navbar() {
           ))}
         </HStack>
 
-        {/* Botão de Toggle de Tema */}
         <HStack alignItems={"center"} justify="center">
           <ThemeToggleButton />
         </HStack>
       </Flex>
 
-      {/* Menu mobile dropdown */}
       {isOpen ? (
         <Box pb={4} display={{ md: "none" }}>
           <Stack as={"nav"} spacing={4}>

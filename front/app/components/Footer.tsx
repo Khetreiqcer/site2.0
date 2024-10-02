@@ -23,6 +23,16 @@ export default function Footer() {
         http://creativecommons.org/licenses/by/4.0/. &copy;{" "}
         {new Date().getFullYear()} Joao Possenti. Todos os direitos reservados.
       </Text>
+      <Text textAlign="center" mt={2}>
+        Made with{" "}
+        <span role="img" aria-label="heart">
+          ��️
+        </span>{" "}
+        by João Possenti. {new Date().getFullYear()}{" "}
+        <Link href="https://www.linkedin.com/in/joão-possenti-4434bb1a1/">
+          Follow me on LinkedIn
+        </Link>
+      </Text>
     </Box>
   );
 }

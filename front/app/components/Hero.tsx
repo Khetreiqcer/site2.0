@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Box, Heading, Text, Image, useColorMode } from "@chakra-ui/react";
 
 export default function Hero() {
-  const { colorMode } = useColorMode(); // Detecta o modo claro/escuro
+  const { colorMode } = useColorMode();
 
   return (
     <Box
@@ -15,7 +15,6 @@ export default function Hero() {
       textAlign="center"
       id="home"
     >
-      {/* Foto com animação */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -23,7 +22,7 @@ export default function Hero() {
         style={{ marginBottom: "20px" }}
       >
         <Image
-          src="https://i.pinimg.com/564x/85/ce/80/85ce801b2f1464caf6ae27ef4d17ecf4.jpg"
+          src="https://i.pinimg.com/564x/f2/e9/0c/f2e90ce2946b5d9d029bf9bdc7db5078.jpg"
           alt="Sua Foto"
           borderRadius="full"
           boxSize="150px"
