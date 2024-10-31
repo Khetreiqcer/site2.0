@@ -38,7 +38,7 @@ function NewModel() {
 export default function NewModelScene() {
   return (
     <div style={{ position: "relative" }}>
-      {/* Canvas do novo modelo 3D */}
+     
       <div
         style={{
           width: "100%",
